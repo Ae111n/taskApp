@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	//test
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,40 +21,33 @@
             <th>task</th>
             <th>date</th>
         </tr>
-       
     </table>
 
 
 
 
     <script>
+		function AddRow() {
+			var table = document.getElementById('show');
+            var taskInput = document.getElementById("taskInput")
+            var dateInput = document.getElementById("dateInput")
 
+            var taskValue = taskInput.value;
+            var dateValue = dateInput.value;
 
-var list1 = [];
+            // Check if the values are empty
+            // 1. if values are empty? do nothing
+            // 2. if values are not empty? continue
+            if (taskValue.length == 0 || dateValue.length == 0) {
+                return
+            }
 
-		var list2= [];
-		
-		var n = 0;
-		var x = 0;
+            var newRow = "<tr> <th>" + taskValue + "</th> <th>" + dateValue + "</th> </tr>" 
 
-		function AddRow(){
+            table.innerHTML += newRow
 
-			var AddRown = document.getElementById('show');
-			var NewRow = AddRown.insertRow(n);
-
-			list1[x] = document.getElementById("taskInput").value;
-			list2[x] = document.getElementById("dateInput").value;
-
-			var cel1 = NewRow.insertCell(0);
-			var cel2 = NewRow.insertCell(1);
-
-
-			cel1.innerHTML = list1[x];
-			cel2.innerHTML = list2[x];
-
-
-			n++;
-			x++;
+            taskInput.value = ""
+            dateInput.value = ""
 		}        
     </script>
 
