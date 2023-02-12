@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+    <h1>task description:</h1><textarea placeholder="task..." id='taskInput'></textarea>
+    <h2>due date:</h2><input placeholder="? / ? / ?" id="dateInput">
+    <br>
+    <button onclick="AddRow()"> submit </button>
+<br><br>
+
+</div>
+
+    <table  id='show' align="center" bgcolor="grey" width="300">
+        <tr bgcolor='grey'>
+            <th>task</th>
+            <th>date</th>
+        </tr>
+       
+    </table>
+
+
+
+
+    <script>
+
+
+var list1 = [];
+
+		var list2= [];
+		
+		var n = 0;
+		var x = 0;
+
+		function AddRow(){
+
+			var AddRown = document.getElementById('show');
+			var NewRow = AddRown.insertRow(n);
+
+			list1[x] = document.getElementById("taskInput").value;
+			list2[x] = document.getElementById("dateInput").value;
+
+			var cel1 = NewRow.insertCell(0);
+			var cel2 = NewRow.insertCell(1);
+
+
+			cel1.innerHTML = list1[x];
+			cel2.innerHTML = list2[x];
+
+
+			n++;
+			x++;
+		}        
+    </script>
+
+
+
+
+    <style>
+        body{
+            text-align: center;
+            background-color: rgb(83, 163, 255);
+            text-size-adjust: larger;
+
+        }
+    </style>
+</body>
+</html>
